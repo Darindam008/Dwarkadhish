@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0047)file:///C:/Users/KGN/Downloads/index.html#about -->
 <html lang="en">
   <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
@@ -10,7 +9,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-  <link href="./index_files/css2" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     /* ── CSS VARIABLES ───────────────────────────────────────── */
@@ -520,7 +519,36 @@
     }
     .float-wa:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,.6); }
 
-    /* ── ANIMATIONS ──────────────────────────────────────────── */
+    /* ── MOBILE HAMBURGER ────────────────────────────────────── */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 6px; background: none; border: none;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--white); border-radius: 2px;
+      transition: all .3s;
+    }
+    .mobile-nav {
+      display: none; position: fixed; top: 62px; left: 0; width: 100%;
+      background: rgba(26,39,68,.97); backdrop-filter: blur(12px);
+      z-index: 998; flex-direction: column; padding: 16px 0 20px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: rgba(255,255,255,.85); padding: 13px 6vw;
+      font-size: .9rem; letter-spacing: .1em; text-transform: uppercase;
+      font-weight: 500; border-bottom: 1px solid rgba(255,255,255,.05);
+      transition: color .2s, background .2s;
+    }
+    .mobile-nav a:hover { color: var(--teal2); background: rgba(255,255,255,.04); }
+    .mobile-nav a.nav-cta {
+      margin: 12px 6vw 0; border-radius: 8px; border: none;
+      background: var(--teal); text-align: center; padding: 13px;
+    }
+    @media (max-width: 768px) { .hamburger { display: flex; } }
+
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-20px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -531,15 +559,96 @@
     }
 
     /* ── RESPONSIVE ──────────────────────────────────────────── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .about-grid, .location-grid { grid-template-columns: 1fr; gap: 36px; }
+
+    /* Tablet */
+    @media (max-width: 900px) {
+      .rooms-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .location-grid { grid-template-columns: 1fr; gap: 36px; }
       .about-chip { position: static; margin-top: 20px; display: inline-block; }
-      .rating-summary { flex-direction: column; text-align: center; }
-      footer { flex-direction: column; align-items: flex-start; }
-      footer nav { margin-top: 10px; }
-      footer nav a:first-child { margin-left: 0; }
     }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      /* Navbar */
+      nav { padding: 0 4vw; height: 62px; }
+      .nav-links { display: none; }
+      .nav-brand strong { font-size: 1rem; }
+      .nav-brand span { font-size: .6rem; }
+      .nav-logo img { width: 42px; height: 42px; }
+
+      /* Hero */
+      .hero { padding: 80px 5vw 50px; }
+      .hero-logo-circle { width: 100px; height: 100px; margin-bottom: 20px; }
+      .hero h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+      .hero-sub { font-size: .82rem; }
+      .hero-badges { gap: 7px; margin-top: 18px; }
+      .badge { font-size: .68rem; padding: .28rem .7rem; }
+      .hero-btns { flex-direction: column; align-items: center; gap: 10px; margin-top: 24px; }
+      .hero-btns .btn { width: 100%; max-width: 300px; justify-content: center; }
+
+      /* Sections */
+      section { padding: 60px 5vw; }
+      .section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .about-chip { position: static; margin-top: 16px; display: inline-block; }
+      .about-features { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .feat-item { font-size: .78rem; }
+
+      /* Rooms */
+      .rooms-grid { grid-template-columns: 1fr; gap: 20px; }
+      .room-body { padding: 18px 18px 22px; }
+      .room-name { font-size: 1.3rem; }
+      .room-price-row { flex-wrap: wrap; gap: 12px; }
+      .room-price-row .btn { width: 100%; justify-content: center; }
+
+      /* Price table — make it scroll horizontally */
+      .price-table { font-size: .78rem; }
+      .price-table thead th,
+      .price-table tbody td { padding: 12px 10px; }
+      div:has(> .price-table) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+      /* Amenities */
+      .amenities-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .amenity-card { padding: 18px 10px; }
+      .amenity-icon { font-size: 1.7rem; margin-bottom: 8px; }
+      .amenity-name { font-size: .72rem; }
+
+      /* Reviews */
+      .reviews-grid { grid-template-columns: 1fr; }
+      .rating-summary { flex-direction: column; text-align: center; padding: 22px 20px; gap: 14px; }
+      .rating-big { font-size: 3rem; }
+
+      /* Location */
+      .location-grid { grid-template-columns: 1fr; gap: 30px; }
+      .map-embed { height: 280px; }
+      .location-section div[style*="display:flex"] { flex-direction: column; }
+      .location-section .btn { width: 100%; justify-content: center; text-align: center; }
+
+      /* Contact */
+      .contact-cards { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .contact-card { padding: 20px 14px; }
+      .contact-icon { font-size: 1.6rem; }
+      .contact-value { font-size: .9rem; }
+      .wa-btn-big { font-size: .88rem; padding: .85rem 1.4rem; margin-top: 28px; }
+
+      /* Footer */
+      footer { flex-direction: column; align-items: flex-start; gap: 16px; padding: 30px 5vw; }
+      footer nav { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 6px; }
+      footer nav a { margin-left: 0 !important; font-size: .74rem; }
+      .footer-copy { font-size: .68rem; }
+    }
+
+    /* Small mobile */
+    @media (max-width: 420px) {
+      .amenities-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-cards { grid-template-columns: 1fr; }
+      .hero-logo-circle { width: 86px; height: 86px; }
+      .price-table { min-width: 480px; }
+    }
+
   </style>
 </head>
 <body>
@@ -561,7 +670,21 @@
     <li><a href="#location">Location</a></li>
     <li><a href="https://wa.me/917866940738" target="_blank" class="nav-cta">📞 Book Now</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about"      onclick="closeMobileNav()">About</a>
+  <a href="#rooms"      onclick="closeMobileNav()">Rooms</a>
+  <a href="#amenities"  onclick="closeMobileNav()">Amenities</a>
+  <a href="#reviews"    onclick="closeMobileNav()">Reviews</a>
+  <a href="#location"   onclick="closeMobileNav()">Location</a>
+  <a href="#contact"    onclick="closeMobileNav()">Contact</a>
+  <a href="https://wa.me/917866940738?text=Hello!%20I%20want%20to%20book%20a%20room%20at%20Hotel%20Dwarkadhish%20Tarapith." target="_blank" class="nav-cta">📞 Book Now on WhatsApp</a>
+</div>
 
 <!-- ══ HERO ══════════════════════════════════════════════════ -->
 <section class="hero" id="home">
@@ -777,6 +900,7 @@
     <meta itemprop="telephone" content="+917866940738">
     <meta itemprop="address" content="Kavi Chandrapur, Tarapith, West Bengal">
 
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
     <table class="price-table">
       <thead>
         <tr>
@@ -828,6 +952,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
   <p style="color:var(--muted);font-size:.78rem;margin-top:16px">* Prices subject to change during peak pilgrim seasons. Contact for best rates.</p>
 </section>
@@ -962,8 +1087,7 @@
       </div>
     </div>
     <div class="map-embed">
-      <iframe src="./index_files/embed.html" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Hotel Dwarkadhish Location on Google Maps">
-      </iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.123456789!2d87.7900!3d23.8810!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f9a1b2c3d4e5f6%3A0x1234567890abcdef!2sHotel%20Dwarkadhish%20Tarapith!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Hotel Dwarkadhish Location on Google Maps"></iframe>
     </div>
   </div>
 </section>
@@ -1096,6 +1220,15 @@
 }
 </script>
 
-
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+  });
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+  }
+</script>
 
 </body></html>
