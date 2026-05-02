@@ -649,6 +649,124 @@
       .price-table { min-width: 480px; }
     }
 
+    /* ── HOURLY STAY SECTION ─────────────────────────────────── */
+    :root {
+      --saffron:       #e8780a;
+      --saffron2:      #f59a3c;
+      --saffron-light: rgba(232,120,10,.10);
+      --saffron-glow:  rgba(232,120,10,.22);
+      --holy-gold:     #d4a92a;
+      --holy-dark:     #1e1206;
+    }
+    .hourly-section {
+      background: linear-gradient(160deg, #1e1206 0%, #2c1a08 50%, #1a1108 100%);
+      position: relative; overflow: hidden; padding: 90px 5vw;
+    }
+    .hourly-section::before {
+      content: 'ॐ';
+      position: absolute; top: -40px; right: 3vw;
+      font-size: 26rem; color: rgba(232,120,10,.04);
+      font-family: serif; line-height: 1; pointer-events: none; user-select: none;
+    }
+    .hourly-glow-ring {
+      position: absolute; border-radius: 50%; pointer-events: none;
+      border: 1px solid rgba(232,120,10,.12);
+    }
+    .hourly-glow-ring:nth-child(1) { width: 420px; height: 420px; top: -130px; left: -130px; }
+    .hourly-glow-ring:nth-child(2) { width: 280px; height: 280px; top: -70px;  left: -70px; border-color: rgba(232,120,10,.22); }
+    .hourly-inner { position: relative; max-width: 1100px; margin: 0 auto; }
+    .hourly-label {
+      display: inline-block;
+      background: var(--saffron-light); border: 1px solid var(--saffron);
+      color: var(--saffron2); font-size: .72rem; letter-spacing: .18em;
+      text-transform: uppercase; font-weight: 600;
+      padding: .35rem .9rem; border-radius: 6px; margin-bottom: 16px;
+    }
+    .hourly-section .h-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem); color: #fff;
+      font-weight: 700; line-height: 1.2; margin-bottom: 4px;
+    }
+    .hourly-section .h-title em { color: var(--saffron2); font-style: italic; }
+    .hourly-divider { background: var(--saffron); width: 52px; height: 3px; border-radius: 2px; margin: 18px 0 26px; }
+    .hourly-price-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, var(--saffron) 0%, var(--holy-gold) 100%);
+      color: #fff; border-radius: 12px; padding: 14px 26px; margin-bottom: 30px;
+      box-shadow: 0 6px 32px rgba(232,120,10,.4);
+    }
+    .hourly-price-badge .amount { font-size: 2.6rem; font-weight: 700; line-height: 1; font-family: 'Cormorant Garamond', serif; }
+    .hourly-price-badge .per    { font-size: .8rem; font-weight: 500; line-height: 1.5; }
+    .hourly-price-badge .min-tag { font-size: .68rem; background: rgba(255,255,255,.22); border-radius: 5px; padding: .22rem .6rem; }
+    .slot-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+    .slot-pill {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(232,120,10,.3);
+      color: rgba(255,255,255,.75); border-radius: 6px;
+      padding: .32rem .85rem; font-size: .76rem; font-weight: 500;
+    }
+    .slot-pill.active { background: var(--saffron-light); border-color: var(--saffron); color: var(--saffron2); }
+    .hourly-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
+    }
+    .hourly-img-wrap { position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 16px 60px rgba(0,0,0,.55); }
+    .hourly-img-wrap img { width: 100%; height: 380px; object-fit: cover; display: block; }
+    .hourly-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(30,18,6,.82) 100%);
+    }
+    .hourly-img-tag {
+      position: absolute; bottom: 20px; left: 20px; right: 20px; color: #fff; font-size: .82rem;
+    }
+    .hourly-img-tag strong { font-size: 1.1rem; display: block; margin-bottom: 4px; color: var(--saffron2); }
+    .hourly-benefits { display: flex; flex-direction: column; gap: 14px; }
+    .benefit-card {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(232,120,10,.18);
+      border-radius: 12px; padding: 16px 18px;
+      transition: background .25s, border-color .25s;
+    }
+    .benefit-card:hover { background: rgba(232,120,10,.08); border-color: rgba(232,120,10,.38); }
+    .benefit-icon {
+      font-size: 1.6rem; flex-shrink: 0; width: 46px; height: 46px;
+      border-radius: 10px; background: var(--saffron-light);
+      border: 1px solid var(--saffron-glow);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .benefit-text h4 { color: var(--saffron2); font-size: .92rem; font-weight: 600; margin-bottom: 3px; }
+    .benefit-text p  { color: rgba(255,255,255,.6); font-size: .8rem; line-height: 1.7; }
+    .hourly-cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+    .btn-saffron {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: linear-gradient(135deg, var(--saffron) 0%, #c96808 100%);
+      color: #fff; font-weight: 600; font-size: .92rem;
+      padding: .88rem 2rem; border-radius: 10px;
+      box-shadow: 0 6px 28px rgba(232,120,10,.45);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-saffron:hover { transform: translateY(-2px); box-shadow: 0 10px 38px rgba(232,120,10,.55); }
+    .btn-saffron-outline {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: transparent; border: 1.5px solid var(--saffron);
+      color: var(--saffron2); font-weight: 600; font-size: .92rem;
+      padding: .84rem 1.8rem; border-radius: 10px;
+      transition: background .2s, color .2s;
+    }
+    .btn-saffron-outline:hover { background: var(--saffron-light); }
+    .hourly-trust-strip {
+      display: flex; gap: 24px; flex-wrap: wrap; margin-top: 26px;
+      border-top: 1px solid rgba(255,255,255,.07); padding-top: 20px;
+    }
+    .trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.5); font-size: .76rem; }
+    .trust-item span { font-size: 1rem; }
+    @media (max-width: 768px) {
+      .hourly-section { padding: 60px 5vw; }
+      .hourly-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hourly-img-wrap img { height: 240px; }
+      .hourly-cta-row { flex-direction: column; }
+      .hourly-cta-row .btn-saffron,
+      .hourly-cta-row .btn-saffron-outline { width: 100%; justify-content: center; }
+    }
+
   </style>
 </head>
 <body>
@@ -665,6 +783,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#rooms">Rooms</a></li>
+    <li><a href="#hourly-stay" style="color:var(--saffron2)">⏱ Weekday Hourly</a></li>
     <li><a href="#amenities">Amenities</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#location">Location</a></li>
@@ -678,8 +797,9 @@
 <!-- Mobile Nav -->
 <div class="mobile-nav" id="mobileNav">
   <a href="#about"      onclick="closeMobileNav()">About</a>
-  <a href="#rooms"      onclick="closeMobileNav()">Rooms</a>
-  <a href="#amenities"  onclick="closeMobileNav()">Amenities</a>
+  <a href="#rooms"        onclick="closeMobileNav()">Rooms</a>
+  <a href="#hourly-stay"  onclick="closeMobileNav()" style="color:var(--saffron2)">⏱ Weekday Hourly Stay</a>
+  <a href="#amenities"    onclick="closeMobileNav()">Amenities</a>
   <a href="#reviews"    onclick="closeMobileNav()">Reviews</a>
   <a href="#location"   onclick="closeMobileNav()">Location</a>
   <a href="#contact"    onclick="closeMobileNav()">Contact</a>
@@ -957,6 +1077,137 @@
   <p style="color:var(--muted);font-size:.78rem;margin-top:16px">* Prices subject to change during peak pilgrim seasons. Contact for best rates.</p>
 </section>
 
+<!-- ══ HOURLY STAY ═════════════════════════════════════════════ -->
+<section class="hourly-section" id="hourly-stay" itemscope itemtype="https://schema.org/Product">
+  <!-- decorative rings -->
+  <div class="hourly-glow-ring"></div>
+  <div class="hourly-glow-ring"></div>
+
+  <div class="hourly-inner">
+    <span class="hourly-label">🕌 Weekdays Only · Mon – Fri · Pilgrim Special</span>
+    <h2 class="h-title" itemprop="name">
+      Weekday Hourly Hotel Booking<br><em>in Tarapith — ₹300/hr</em>
+    </h2>
+    <div class="hourly-divider"></div>
+
+    <!-- SEO sub-heading for keyword targeting -->
+    <h3 style="color:rgba(255,255,255,.55);font-size:.92rem;font-weight:400;margin-bottom:22px;max-width:600px;line-height:1.8">
+      Budget lodge in Tarapith near the Temple — weekday short stay for Puja, freshen-up, or a quick rest. <strong style="color:var(--saffron2)">Available Monday to Friday only.</strong> Walk-in welcome during weekdays.
+    </h3>
+
+    <!-- Price badge -->
+    <div class="hourly-price-badge" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+      <meta itemprop="priceCurrency" content="INR">
+      <meta itemprop="price" content="300">
+      <meta itemprop="availability" content="https://schema.org/LimitedAvailability">
+      <meta itemprop="description" content="Weekday hourly hotel room in Tarapith (Monday–Friday only). Minimum 3-hour slot. AC room with geyser and WiFi. Not available on weekends.">
+      <div class="amount">₹300</div>
+      <div class="per">
+        per hour<br>
+        <span class="min-tag">Min. 3-hr slot</span>
+      </div>
+    </div>
+
+    <!-- Slot pills -->
+    <div class="slot-pills">
+      <span class="slot-pill active">3 hrs — ₹900</span>
+      <span class="slot-pill">6 hrs — ₹1800</span>
+      <span class="slot-pill">9 hrs — ₹2700</span>
+      <span class="slot-pill">12 hrs — ₹3600</span>
+      <span class="slot-pill">24 hrs (full day)</span>
+    </div>
+
+    <!-- Two-column grid: image + benefits -->
+    <div class="hourly-grid">
+
+      <!-- Left: Room photo -->
+      <div class="hourly-img-wrap">
+        <img
+          src="https://raw.githubusercontent.com/kgn-hotel/dwarkadhish/main/2guest.jpg"
+          onerror="this.src='2guest.jpg'"
+          alt="Hourly Stay Room at Hotel Dwarkadhish Tarapith — AC room for short stay near Tarapith Temple"
+          loading="lazy">
+        <div class="hourly-img-overlay"></div>
+        <div class="hourly-img-tag">
+          <strong>Weekday Hourly Room</strong>
+          AC · Geyser · WiFi · Mon–Fri only
+        </div>
+      </div>
+
+      <!-- Right: Benefits -->
+      <div>
+        <h3 style="color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.5rem;margin-bottom:20px;">
+          Why Choose an <em style="color:var(--saffron2)">Hourly Stay</em>?
+        </h3>
+        <div class="hourly-benefits">
+
+          <div class="benefit-card">
+            <div class="benefit-icon">💰</div>
+            <div class="benefit-text">
+              <h4>Cost-Effective</h4>
+              <p>Pay only for the hours you actually stay — not for an entire day. Perfect for budget-conscious pilgrims and travellers.</p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🛕</div>
+            <div class="benefit-text">
+              <h4>Pilgrim Friendly</h4>
+              <p>Ideal for freshening up before and after your Tarapith Temple Puja. Located just a 3-minute walk from the temple gate.</p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🗓️</div>
+            <div class="benefit-text">
+              <h4>Weekday Flexibility (Mon–Fri)</h4>
+              <p>Available Monday to Friday — check in and check out any time during weekdays. Plan your pilgrimage mid-week to enjoy quieter temples and easier bookings.</p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🔒</div>
+            <div class="benefit-text">
+              <h4>Safe &amp; Secure</h4>
+              <p>Secure luggage storage, high-hygiene housekeeping after every slot, and 24-hour reception for complete peace of mind.</p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">👨‍👩‍👧</div>
+            <div class="benefit-text">
+              <h4>Couple &amp; Family Friendly</h4>
+              <p>Hassle-free check-ins with no unnecessary documentation for all travellers — couples, families, and solo pilgrims alike.</p>
+            </div>
+          </div>
+
+        </div><!-- /benefits -->
+
+        <!-- CTA -->
+        <div class="hourly-cta-row">
+          <a href="https://wa.me/917866940738?text=Hello!%20I%20want%20to%20book%20a%20Weekday%20Hourly%20Stay%20at%20Hotel%20Dwarkadhish%20Tarapith%20(Mon%E2%80%93Fri).%20Please%20confirm%20availability."
+             target="_blank" class="btn-saffron">
+            💬 Book My Weekday Slot on WhatsApp
+          </a>
+          <a href="tel:+917866940738" class="btn-saffron-outline">
+            📞 Call to Book
+          </a>
+        </div>
+
+        <!-- Trust strip -->
+        <div class="hourly-trust-strip">
+          <div class="trust-item"><span>📅</span> Mon – Fri only</div>
+          <div class="trust-item"><span>🚫</span> Not available on weekends</div>
+          <div class="trust-item"><span>🧹</span> Cleaned before every slot</div>
+          <div class="trust-item"><span>📍</span> 3-min walk to temple</div>
+          <div class="trust-item"><span>✅</span> No advance payment needed</div>
+        </div>
+
+      </div><!-- /right -->
+    </div><!-- /grid -->
+  </div><!-- /inner -->
+</section>
+
 <!-- ══ AMENITIES ══════════════════════════════════════════════ -->
 <section class="amenities-section" id="amenities">
   <p class="section-label">What We Offer</p>
@@ -1215,6 +1466,13 @@
       "name": "Deluxe Group Suite",
       "occupancy": {"@type": "QuantitativeValue", "maxValue": 10},
       "priceRange": "₹1999+"
+    },
+    {
+      "@type": "Accommodation",
+      "name": "Weekday Hourly Stay Room",
+      "description": "Weekday hourly hotel room for pilgrims (Monday–Friday only) — short stay near Tarapith Temple. Minimum 3 hours. Not available on weekends.",
+      "occupancy": {"@type": "QuantitativeValue", "maxValue": 2},
+      "priceRange": "₹300/hr (min 3 hrs, weekdays only)"
     }
   ]
 }
@@ -1229,6 +1487,60 @@
   function closeMobileNav() {
     mobileNav.classList.remove('open');
   }
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Weekday Hourly Hotel Room — Hotel Dwarkadhish Tarapith",
+  "description": "Weekday hourly hotel booking in Tarapith near Tarapith Temple (Monday to Friday only — not available on weekends). Short stay for pilgrims — freshening up before and after Puja. AC room with geyser, Smart TV, and free WiFi. Budget lodge in Tarapith. Minimum 3-hour slot.",
+  "image": "https://tarapithhotel.com/2guest.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "Hotel Dwarkadhish Tarapith"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "INR",
+    "price": "300",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "300",
+      "priceCurrency": "INR",
+      "unitText": "per hour",
+      "description": "Minimum 3-hour slot — ₹900 minimum charge"
+    },
+    "availability": "https://schema.org/LimitedAvailability",
+    "availabilityStarts": "Monday",
+    "availabilityEnds": "Friday",
+    "seller": {
+      "@type": "Hotel",
+      "name": "Hotel Dwarkadhish Tarapith",
+      "telephone": "+917866940738",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kavi Chandrapur, Near Tarapith Temple",
+        "addressLocality": "Tarapith",
+        "addressRegion": "West Bengal",
+        "postalCode": "731233",
+        "addressCountry": "IN"
+      },
+      "url": "https://tarapithhotel.com"
+    },
+    "url": "https://tarapithhotel.com/#hourly-stay"
+  },
+  "keywords": [
+    "weekday hourly hotel booking Tarapith",
+    "hourly hotel booking Tarapith weekdays",
+    "short stay near Tarapith Temple",
+    "weekday hourly room Tarapith",
+    "budget lodge Tarapith for Puja",
+    "lodge near me Tarapith weekday",
+    "hourly room Birbhum Monday Friday",
+    "short stay hotel Tarapith weekday"
+  ]
+}
 </script>
 
 </body></html>
